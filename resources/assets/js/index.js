@@ -64,6 +64,9 @@
         // 删除图片
         _this.wrap.find('.sku_edit_wrap tbody').on('click', '.sku_img .icon-x', function () {
             let that = $(this);
+            that.parent('div').remove();
+            _this.processSku();
+            return;
             Dcat.confirm('确认要删除图片吗？', null, function () {
                 $.ajax({
                     type: "POST",
