@@ -68,7 +68,7 @@
                 $.ajax({
                     type: "POST",
                     url: _this.deleteUrl,
-                    data: {path: that.data('path')},
+                    data: {id: that.data('id')},
                     headers: {
                         Accept: "application/json"
                     },
@@ -250,7 +250,7 @@
                         if (field == 'pic' && item_sku[field].length > 0) {
                             let html = '';
                             item_sku[field].forEach(function (v) {
-                                html += '<div class="img"><img src="' + v.full_url + '"/><i class="feather icon-x" data-path="' + v.short_url + '"></i></div>';
+                                html += '<div class="img"><img src="' + v.full_url + '"/><i class="feather icon-x" data-path="' + v.short_url + '" data-id="' + v.id + '"></i></div>';
                             });
                             tr.find('.Js_sku_upload').before(html);
                         } else {
@@ -356,7 +356,9 @@
                 },
                 processData: false, //告诉jQuery不要去处理发送的数据
                 success: function (res) {
-                    obj.replaceWith('<div class="img"><img src="' + res.full_url + '"/><i class="feather icon-x" data-path="' + res.short_url + '"></i></div>');
+                    obj.value = '';
+                    obj.innerHTML = '';
+                    obj.after('<div class="img"><img src="' + res.full_url + '"/><i class="feather icon-x" data-path="' + res.short_url + '"></i></div>');
                     _this.processSku();
                 }
             })
