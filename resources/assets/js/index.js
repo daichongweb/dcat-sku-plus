@@ -232,7 +232,7 @@
                     let attr_name = attr_names[index];
                     tbody_html += '<td data-field="' + attr_name + '" class="attr-name">' + attr_val + '</td>';
                 });
-                tbody_html += '<td data-field="pic"><div class="sku_img"><span class="Js_sku_upload"><i class="feather icon-upload-cloud"></i></span></div></td>';
+                tbody_html += '<td data-field="pic"><div class="sku_img"></div></td>';
                 tbody_html += '<td data-field="stock"><input value="" type="text" class="form-control"></td>';
                 tbody_html += '<td data-field="price"><input value="" type="text" class="form-control"></td>';
 
