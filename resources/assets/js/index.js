@@ -250,7 +250,7 @@
                         if (field == 'pic' && item_sku[field].length > 0) {
                             let html = '';
                             item_sku[field].forEach(function (v) {
-                                html += '<div class="img"><img src="' + v.data.url + '"/><i class="feather icon-x" data-path="' + v.data.id + '"></i></div>';
+                                html += '<div class="img"><img src="' + v.url + '"/><i class="feather icon-x" data-path="' + v.id + '"></i></div>';
                             });
                             tr.find('.Js_sku_upload').before(html);
                         } else {
@@ -356,7 +356,7 @@
                 },
                 processData: false, //告诉jQuery不要去处理发送的数据
                 success: function (res) {
-                    obj.replaceWith('<div class="img"><img src="' + res.data.url + '"/><i class="feather icon-x" data-path="' + res.data.id + '"></i></div>');
+                    obj.replaceWith('<div class="img"><img src="' + res.url + '"/><i class="feather icon-x" data-path="' + res.id + '"></i></div>');
                     _this.processSku();
                 }
             })
