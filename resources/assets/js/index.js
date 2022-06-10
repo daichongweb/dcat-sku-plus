@@ -316,10 +316,12 @@
                     let skuImg = td.find('.img');
                     if (skuImg.length > 0) {
                         skuImg.each(function (i, v) {
-                            pic.push({
-                                short_url: $(v).find('.icon-x').data('path'),
-                                full_url: $(v).find('img').attr('src')
-                            });
+                            // pic.push({
+                            //     short_url: $(v).find('.icon-x').data('path'),
+                            //     full_url: $(v).find('img').attr('src')
+                            // });
+                            pic['short_url'] = $(v).find('.icon-x').data('path');
+                            pic['full_url'] = $(v).find('img').attr('src')
                         });
                         item_sku['pic'] = pic;
                     }
