@@ -356,8 +356,8 @@
                 },
                 processData: false, //告诉jQuery不要去处理发送的数据
                 success: function (res) {
-                    obj.value = '';
-                    obj.innerHTML = '';
+                    obj.value('');
+                    obj.html('')
                     obj.after('<div class="img"><img src="' + res.full_url + '"/><i class="feather icon-x" data-path="' + res.short_url + '"></i></div>');
                     _this.processSku();
                 }
