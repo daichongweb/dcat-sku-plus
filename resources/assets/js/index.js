@@ -250,7 +250,7 @@
                         if (field == 'pic' && item_sku[field].length > 0) {
                             let html = '';
                             item_sku[field].forEach(function (v) {
-                                html += '<div class="img"><img src="' + v.full_url + '"/><i class="feather icon-x" data-path="' + v.short_url + '"></i></div>';
+                                html += '<div class="img"><img src="' + v.data.url + '"/><i class="feather icon-x" data-path="' + v.data.id + '"></i></div>';
                             });
                             tr.find('.Js_sku_upload').before(html);
                         } else {
@@ -314,8 +314,8 @@
                     if (skuImg.length > 0) {
                         skuImg.each(function (i, v) {
                             pic.push({
-                                short_url: $(v).find('.icon-x').data('path'),
-                                full_url: $(v).find('img').attr('src')
+                                id: $(v).find('.icon-x').data('path'),
+                                url: $(v).find('img').attr('src')
                             });
                         });
                         item_sku['pic'] = pic;
@@ -356,7 +356,7 @@
                 },
                 processData: false, //告诉jQuery不要去处理发送的数据
                 success: function (res) {
-                    obj.before('<div class="img"><img src="' + res.full_url + '"/><i class="feather icon-x" data-path="' + res.short_url + '"></i></div>');
+                    obj.replaceWith('<div class="img"><img src="' + res.data.url + '"/><i class="feather icon-x" data-path="' + res.data.id + '"></i></div>');
                     _this.processSku();
                 }
             })
